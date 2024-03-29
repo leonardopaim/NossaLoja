@@ -1,5 +1,4 @@
-﻿using Autofac;
-using NossaLoja.Cadastros.Data.ADO.Repositories;
+﻿using NossaLoja.Cadastros.Data.ADO.Repositories;
 using NossaLoja.Cadastros.Domain.Interfaces.Repositories;
 using NossaLoja.Cadastros.Infra.DependencyInjection.Interfaces;
 using Unity;
