@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
+    <Nullable>disable</Nullable>
   </PropertyGroup>
 
   <ItemGroup>
@@ -11,6 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\Core\Infra\NossaLoja.Core.Infra\NossaLoja.Core.Infra.csproj" />
     <ProjectReference Include="..\..\Data\NossaLoja.Cadastros.Data.ADO\NossaLoja.Cadastros.Data.ADO.csproj" />
     <ProjectReference Include="..\..\Domain\NossaLoja.Cadastros.Domain\NossaLoja.Cadastros.Domain.csproj" />
   </ItemGroup>

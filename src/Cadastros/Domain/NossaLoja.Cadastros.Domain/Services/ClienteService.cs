@@ -1,4 +1,5 @@
 ﻿using NossaLoja.Cadastros.Domain.Interfaces.Repositories;
+using NossaLoja.Core.Domain.Interface;
 using System.Diagnostics;
 
 namespace NossaLoja.Cadastros.Domain.Services;
@@ -7,7 +8,10 @@ public class ClienteService : BaseService
 {
     private readonly IClienteRepository _clienteRepository;
 
-    public ClienteService(IClienteRepository clienteRepository)
+    public ClienteService(
+        IDataContext dataContext, 
+        IClienteRepository clienteRepository
+        ) : base(dataContext)
     {
         _clienteRepository = clienteRepository;
     }
@@ -16,6 +20,8 @@ public class ClienteService : BaseService
     {
         try
         {
+            _dataContext.BeginTransaction();
+
             var quantidade = _clienteRepository.TotalDeClientes();
 
             Resposta = "Sucesso";
@@ -24,11 +30,13 @@ public class ClienteService : BaseService
         }
         catch (Exception ex)
         {
-            Debug.WriteLine(ex.Message);
-
             Resposta = "Falha";
 
             return 0;
+        }
+        finally
+        {
+            _dataContext.Finally();
         }
     }
 

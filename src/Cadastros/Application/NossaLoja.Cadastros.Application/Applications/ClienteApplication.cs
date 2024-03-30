@@ -1,6 +1,7 @@
 ﻿using NossaLoja.Cadastros.Domain.Interfaces.Repositories;
 using NossaLoja.Cadastros.Domain.Services;
 using NossaLoja.Cadastros.Infra.DependencyInjection.Services;
+using NossaLoja.Core.Domain.Interface;
 
 namespace NossaLoja.Cadastros.Application.Applications;
 
@@ -11,6 +12,7 @@ public class ClienteApplication : BaseApplication
     public ClienteApplication()
     {
         _clienteService = new ClienteService(
+            DependencyInjectionService.Resolve<IDataContext>(),
             DependencyInjectionService.Resolve<IClienteRepository>()
         );
     }

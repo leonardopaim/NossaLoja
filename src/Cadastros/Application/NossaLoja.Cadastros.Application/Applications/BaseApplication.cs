@@ -2,5 +2,5 @@
 
 public class BaseApplication
 {
-    public virtual string Resposta { get; set; } = "";
+    public virtual string Resposta { get; set; }
 }

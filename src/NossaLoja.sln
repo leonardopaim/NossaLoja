@@ -7,21 +7,31 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Cadastros", "Cadastros", "{
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application", "{8DDB6C58-9A22-4BC2-A493-29A3AEC558AA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NossaLoja.Cadastros.Application", "Cadastros\Application\NossaLoja.Cadastros.Application\NossaLoja.Cadastros.Application.csproj", "{11BB6BA2-3C33-429B-A40B-C9DFB0C43812}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NossaLoja.Cadastros.Application", "Cadastros\Application\NossaLoja.Cadastros.Application\NossaLoja.Cadastros.Application.csproj", "{11BB6BA2-3C33-429B-A40B-C9DFB0C43812}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NossaLoja.Cadastros.Application.Test", "Cadastros\Application\NossaLoja.Cadastros.Application.Test\NossaLoja.Cadastros.Application.Test.csproj", "{F97C7CF5-6F1B-4BCD-A83C-A5DD347D2709}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NossaLoja.Cadastros.Application.Test", "Cadastros\Application\NossaLoja.Cadastros.Application.Test\NossaLoja.Cadastros.Application.Test.csproj", "{F97C7CF5-6F1B-4BCD-A83C-A5DD347D2709}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{2E1D0CD0-2BA2-4969-8963-2564937F617E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NossaLoja.Cadastros.Domain", "Cadastros\Domain\NossaLoja.Cadastros.Domain\NossaLoja.Cadastros.Domain.csproj", "{AC202D37-BFC5-4550-86DE-3BF1813B799E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NossaLoja.Cadastros.Domain", "Cadastros\Domain\NossaLoja.Cadastros.Domain\NossaLoja.Cadastros.Domain.csproj", "{AC202D37-BFC5-4550-86DE-3BF1813B799E}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{E6A6218A-61CC-4A49-9D1D-AE5D1AA2DCF3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NossaLoja.Cadastros.Data.ADO", "Cadastros\Data\NossaLoja.Cadastros.Data.ADO\NossaLoja.Cadastros.Data.ADO.csproj", "{708F2D15-B8E3-4862-A2FA-063883410E36}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NossaLoja.Cadastros.Data.ADO", "Cadastros\Data\NossaLoja.Cadastros.Data.ADO\NossaLoja.Cadastros.Data.ADO.csproj", "{708F2D15-B8E3-4862-A2FA-063883410E36}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infra", "Infra", "{3C2E3469-DF49-45D3-994D-3DC80C8802B4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NossaLoja.Cadastros.Infra", "Cadastros\Infra\NossaLoja.Cadastros.Infra\NossaLoja.Cadastros.Infra.csproj", "{A620ED99-80F7-4375-BFFE-C68DA3E23C83}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NossaLoja.Cadastros.Infra", "Cadastros\Infra\NossaLoja.Cadastros.Infra\NossaLoja.Cadastros.Infra.csproj", "{A620ED99-80F7-4375-BFFE-C68DA3E23C83}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{50EF836A-521A-4BAB-8D36-10D80F55529F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{4E879D9B-CBDF-4D89-B28B-0C93E3561BB8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NossaLoja.Core.Domain", "Core\Domain\NossaLoja.Core.Domain\NossaLoja.Core.Domain.csproj", "{BB2512B0-76B1-4148-9236-CB1E4531FD6F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infra", "Infra", "{B69B3572-B654-4838-9DB9-EE811D3C95E4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NossaLoja.Core.Infra", "Core\Infra\NossaLoja.Core.Infra\NossaLoja.Core.Infra.csproj", "{03D8BDF4-E016-403C-BCB3-63C8253679BA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -49,6 +59,14 @@ Global
 		{A620ED99-80F7-4375-BFFE-C68DA3E23C83}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A620ED99-80F7-4375-BFFE-C68DA3E23C83}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A620ED99-80F7-4375-BFFE-C68DA3E23C83}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BB2512B0-76B1-4148-9236-CB1E4531FD6F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB2512B0-76B1-4148-9236-CB1E4531FD6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB2512B0-76B1-4148-9236-CB1E4531FD6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB2512B0-76B1-4148-9236-CB1E4531FD6F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{03D8BDF4-E016-403C-BCB3-63C8253679BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{03D8BDF4-E016-403C-BCB3-63C8253679BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{03D8BDF4-E016-403C-BCB3-63C8253679BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{03D8BDF4-E016-403C-BCB3-63C8253679BA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -63,6 +81,10 @@ Global
 		{708F2D15-B8E3-4862-A2FA-063883410E36} = {E6A6218A-61CC-4A49-9D1D-AE5D1AA2DCF3}
 		{3C2E3469-DF49-45D3-994D-3DC80C8802B4} = {33DA5841-C52E-48D3-8BA8-52C77882A60F}
 		{A620ED99-80F7-4375-BFFE-C68DA3E23C83} = {3C2E3469-DF49-45D3-994D-3DC80C8802B4}
+		{4E879D9B-CBDF-4D89-B28B-0C93E3561BB8} = {50EF836A-521A-4BAB-8D36-10D80F55529F}
+		{BB2512B0-76B1-4148-9236-CB1E4531FD6F} = {4E879D9B-CBDF-4D89-B28B-0C93E3561BB8}
+		{B69B3572-B654-4838-9DB9-EE811D3C95E4} = {50EF836A-521A-4BAB-8D36-10D80F55529F}
+		{03D8BDF4-E016-403C-BCB3-63C8253679BA} = {B69B3572-B654-4838-9DB9-EE811D3C95E4}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E3516680-D597-4D4D-ABFE-34F26ABA9997}

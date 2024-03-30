@@ -7,7 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Domain\NossaLoja.Cadastros.Domain\NossaLoja.Cadastros.Domain.csproj" />
+    <PackageReference Include="MySql.Data" Version="8.3.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Domain\NossaLoja.Core.Domain\NossaLoja.Core.Domain.csproj" />
   </ItemGroup>
 
 </Project>

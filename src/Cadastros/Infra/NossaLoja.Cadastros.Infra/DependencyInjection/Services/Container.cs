@@ -1,6 +1,8 @@
 ﻿using NossaLoja.Cadastros.Data.ADO.Repositories;
 using NossaLoja.Cadastros.Domain.Interfaces.Repositories;
 using NossaLoja.Cadastros.Infra.DependencyInjection.Interfaces;
+using NossaLoja.Core.Domain.Interface;
+using NossaLoja.Core.Infra.DataContext.ADO;
 using Unity;
 using Unity.Lifetime;
 
@@ -27,6 +29,7 @@ public class Container : IMeuContainer
     private void RegisterTypes()
     {
         _unityContainer
+            .Scoped<IDataContext, DataContext>()
             .Scoped<IClienteRepository, ClienteRepository>();
     }
 }
