@@ -12,14 +12,6 @@ public class DataContext : IDataContext
     public MySqlConnection MySqlConnection { get; set; }
     private MySqlTransaction MySqlTransaction { get; set; }
 
-    public void BeginTransaction(string connectionString)
-    {
-        MySqlConnection = new MySqlConnection(connectionString);
-        MySqlConnectionString = MySqlConnection.ConnectionString;
-        MySqlConnection.Open();
-        MySqlTransaction = MySqlConnection.BeginTransaction();
-    }
-
     public void BeginTransaction()
     {
         var connectionString = "Server=localhost;Port=3309;Database=nossa_loja;Uid=root;Pwd=root;";
@@ -36,12 +28,16 @@ public class DataContext : IDataContext
     public void Finally()
     {
         if (MySqlTransaction != null)
+        {
             MySqlTransaction.Dispose();
-        
+            //MySqlTransaction = null;
+        }
+
         if (MySqlConnection != null)
         {
             MySqlConnection.Close();
             MySqlConnection.Dispose();
+            //MySqlConnection = null;
         }
     }
 
@@ -69,5 +65,9 @@ public class DataContext : IDataContext
         return mySqlCommand.ExecuteScalar();
     }
 
-    public void Dispose() => GC.SuppressFinalize(this);
+    public void Dispose()
+    {
+        Finally();
+        GC.SuppressFinalize(this);
+    }
 }

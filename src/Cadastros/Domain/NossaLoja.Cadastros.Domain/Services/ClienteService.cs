@@ -1,6 +1,5 @@
 ﻿using NossaLoja.Cadastros.Domain.Interfaces.Repositories;
 using NossaLoja.Core.Domain.Interface;
-using System.Diagnostics;
 
 namespace NossaLoja.Cadastros.Domain.Services;
 
