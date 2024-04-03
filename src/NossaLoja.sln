@@ -1,0 +1,60 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Cadastros", "Cadastros", "{6FE4E78A-4D32-4AD4-BB56-0855AB428B61}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application", "{69448D4B-C75B-443D-A5E5-7A1E1C54567C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NossaLoja.Cadastros.Application", "Cadastros\Application\NossaLoja.Cadastros.Application\NossaLoja.Cadastros.Application.csproj", "{AB89C196-44E4-4C75-9239-260833874AFE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NossaLoja.Cadastros.Application.Test", "Cadastros\Application\NossaLoja.Cadastros.Application.Test\NossaLoja.Cadastros.Application.Test.csproj", "{B14C2422-20F9-49A7-A61E-5C9A59AA201E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{AF607118-448D-4817-B6B6-8CF06B87861B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NossaLoja.Cadastros.Domain", "Cadastros\Domain\NossaLoja.Cadastros.Domain\NossaLoja.Cadastros.Domain.csproj", "{8AA83EB1-BBFD-4D49-BA4F-14FDC3DA79E9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{D5CDAD7A-B338-46FB-88DA-27C83F8B928A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NossaLoja.Cadastros.Data.ADO", "Cadastros\Data\NossaLoja.Cadastros.Data.ADO\NossaLoja.Cadastros.Data.ADO.csproj", "{3F9875AA-2DAF-420B-87C4-236A6E2D1759}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AB89C196-44E4-4C75-9239-260833874AFE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AB89C196-44E4-4C75-9239-260833874AFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AB89C196-44E4-4C75-9239-260833874AFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AB89C196-44E4-4C75-9239-260833874AFE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B14C2422-20F9-49A7-A61E-5C9A59AA201E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B14C2422-20F9-49A7-A61E-5C9A59AA201E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B14C2422-20F9-49A7-A61E-5C9A59AA201E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B14C2422-20F9-49A7-A61E-5C9A59AA201E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8AA83EB1-BBFD-4D49-BA4F-14FDC3DA79E9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8AA83EB1-BBFD-4D49-BA4F-14FDC3DA79E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8AA83EB1-BBFD-4D49-BA4F-14FDC3DA79E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8AA83EB1-BBFD-4D49-BA4F-14FDC3DA79E9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3F9875AA-2DAF-420B-87C4-236A6E2D1759}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F9875AA-2DAF-420B-87C4-236A6E2D1759}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F9875AA-2DAF-420B-87C4-236A6E2D1759}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F9875AA-2DAF-420B-87C4-236A6E2D1759}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{69448D4B-C75B-443D-A5E5-7A1E1C54567C} = {6FE4E78A-4D32-4AD4-BB56-0855AB428B61}
+		{AB89C196-44E4-4C75-9239-260833874AFE} = {69448D4B-C75B-443D-A5E5-7A1E1C54567C}
+		{B14C2422-20F9-49A7-A61E-5C9A59AA201E} = {69448D4B-C75B-443D-A5E5-7A1E1C54567C}
+		{AF607118-448D-4817-B6B6-8CF06B87861B} = {6FE4E78A-4D32-4AD4-BB56-0855AB428B61}
+		{8AA83EB1-BBFD-4D49-BA4F-14FDC3DA79E9} = {AF607118-448D-4817-B6B6-8CF06B87861B}
+		{D5CDAD7A-B338-46FB-88DA-27C83F8B928A} = {6FE4E78A-4D32-4AD4-BB56-0855AB428B61}
+		{3F9875AA-2DAF-420B-87C4-236A6E2D1759} = {D5CDAD7A-B338-46FB-88DA-27C83F8B928A}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {58F13157-9CB4-4A23-B7DE-F9650CAC9EC8}
+	EndGlobalSection
+EndGlobal
