@@ -4,7 +4,12 @@ namespace NossaLoja.Cadastros.Domain.Services;
 
 public class ClienteService
 {
-    private IClienteRepository _clienteRepository;
+    private readonly IClienteRepository _clienteRepository;
+
+    public ClienteService(IClienteRepository clienteRepository)
+    {
+        _clienteRepository = clienteRepository;
+    }
 
     public int SomaUmMaisUm()
     {
