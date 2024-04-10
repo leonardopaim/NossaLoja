@@ -17,4 +17,7 @@ Tem por objetivo familiarizar o time de desenvolvimento da Sommus quanto aos con
   
 - [Parte 3 (Prática) - Implementação de código - Criação do projeto e primeiras camadas](https://www.youtube.com/watch?v=C9Oa8NHwetQ): <br/>
   Neste vídeo damos início a criação do projeto desde a Solution até a camada Data.
+
+- [Parte 4 (Prática) - Configuração da Injeção de Dependências](https://www.youtube.com/watch?v=HPwEENy5JCI): <br/>
+  Neste vídeo é realizada a criação da camada Infra e fazemos a configuração da Injeção de Dependências da aplicação.
   
