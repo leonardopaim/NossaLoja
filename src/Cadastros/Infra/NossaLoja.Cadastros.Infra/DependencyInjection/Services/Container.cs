@@ -1,7 +1,10 @@
 ﻿using NossaLoja.Cadastros.Data.ADO.Repositories;
-using NossaLoja.Cadastros.Domain.Interfaces;
+using NossaLoja.Cadastros.Domain.Interfaces.Repositories;
 using NossaLoja.Cadastros.Infra.DependencyInjection.Interfaces;
+using NossaLoja.Core.Domain.Interfaces.Repositories;
+using NossaLoja.Core.Infra.DataContext.ADO;
 using Unity;
+using Unity.Injection;
 
 namespace NossaLoja.Cadastros.Infra.DependencyInjection.Services;
 
@@ -27,6 +30,7 @@ public class Container : IDependencyInjection
     private void RegisterTypes()
     {
         _unityContainer
-            .RegisterType<IClienteRepository, ClienteRepository>();
+            .RegisterType<IDataContext, DataContext>(new InjectionConstructor())
+            .RegisterType<IClienteRepository, ClienteRepository>(new InjectionConstructor());
     }
 }

@@ -1,11 +1,19 @@
-﻿using NossaLoja.Cadastros.Domain.Interfaces;
+﻿using MySql.Data.MySqlClient;
+using NossaLoja.Cadastros.Domain.Interfaces.Repositories;
+using NossaLoja.Core.Domain.Interfaces.Repositories;
 
 namespace NossaLoja.Cadastros.Data.ADO.Repositories;
 
 public class ClienteRepository : IClienteRepository
 {
-    public int GetNumeroUm()
+    public Int64 GetNumeroUm(IDataContext dataContext)
     {
-        return 1;
+        var query = "SELECT 1";
+
+        var mySqlCommand = new MySqlCommand(query);
+
+        var retorno = Convert.ToInt32(dataContext.ExecuteScalar(mySqlCommand));
+
+        return retorno;
     }
 }
