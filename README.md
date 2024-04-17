@@ -20,4 +20,7 @@ Tem por objetivo familiarizar o time de desenvolvimento da Sommus quanto aos con
 
 - [Parte 4 (Prática) - Configuração da Injeção de Dependências](https://www.youtube.com/watch?v=HPwEENy5JCI): <br/>
   Neste vídeo é realizada a criação da camada Infra e fazemos a configuração da Injeção de Dependências da aplicação.
+
+- [Parte 5 (Prática) - Configuração do acesso ao banco de dados](https://www.youtube.com/watch?v=BOUqhMFL8DM): <br/>
+  Na quinta parte do treinamento é realizada a configuração é o acesso ao banco de dados na aplicação.
   
