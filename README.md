@@ -23,4 +23,7 @@ Tem por objetivo familiarizar o time de desenvolvimento da Sommus quanto aos con
 
 - [Parte 5 (Prática) - Configuração do acesso ao banco de dados](https://www.youtube.com/watch?v=BOUqhMFL8DM): <br/>
   Na quinta parte do treinamento é realizada a configuração é o acesso ao banco de dados na aplicação.
+
+- [Parte 6 (Prática) - Inserindo um cliente no banco de dados](https://www.youtube.com/watch?v=Qh5uXcqTxsQ): <br/>
+  No sexto dia do treinamento é realizada a inserção de cliente no banco de dados e trabalhado conceitos de Entidade, ViewModel e Mapper.
   
