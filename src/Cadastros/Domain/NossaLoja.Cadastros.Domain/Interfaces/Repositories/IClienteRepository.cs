@@ -1,8 +1,12 @@
-﻿using NossaLoja.Core.Domain.Interfaces.Repositories;
+﻿using NossaLoja.Cadastros.Domain.Entities;
+using NossaLoja.Core.Domain.Interfaces.Repositories;
 
 namespace NossaLoja.Cadastros.Domain.Interfaces.Repositories;
 
 public interface IClienteRepository
 {
-    Int64 GetNumeroUm(IDataContext dataContext);
+    int GetNumeroUm(IDataContext dataContext);
+    void Add(IDataContext dataContext, Cliente cliente);
+    int Update();
+    int Delete();
 }

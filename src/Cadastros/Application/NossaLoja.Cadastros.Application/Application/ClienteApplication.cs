@@ -1,4 +1,7 @@
-﻿using NossaLoja.Cadastros.Domain.Interfaces.Repositories;
+﻿using NossaLoja.Cadastros.Application.Mappers;
+using NossaLoja.Cadastros.Application.ViewModels;
+using NossaLoja.Cadastros.Domain.Entities;
+using NossaLoja.Cadastros.Domain.Interfaces.Repositories;
 using NossaLoja.Cadastros.Domain.Services;
 using NossaLoja.Cadastros.Infra.DependencyInjection.Services;
 using NossaLoja.Core.Domain.Interfaces.Repositories;
@@ -17,10 +20,33 @@ public class ClienteApplication
         return clienteService;
     }
 
-    public Int64 SomaUmMaisUm()
+    public int SomaUmMaisUm()
     {
         var resultado = ServiceFactory().SomaUmMaisUm();
         
+        return resultado;
+    }
+
+    public void Add(ClienteVM clienteVM)
+    {
+        var cliente = ClienteMap.Get(clienteVM);
+
+        ServiceFactory().Add(cliente);
+
+        clienteVM.Id = cliente.Id;
+    }
+
+    public int Update()
+    {
+        var resultado = ServiceFactory().Update();
+
+        return resultado;
+    }
+
+    public int Delete()
+    {
+        var resultado = ServiceFactory().Delete();
+
         return resultado;
     }
 }

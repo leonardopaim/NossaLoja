@@ -11,7 +11,7 @@ public class DataContext : IDataContext
 
     public void BeginTransaction()
     {
-        var connectionString = "Server=localhost;Database=nossa_loja_2;Uid=root;Pwd=root;Port=3307;Allow Zero Datetime=true;";
+        var connectionString = "Server=localhost;Database=nossa_loja;Uid=root;Pwd=root;Port=3307;Allow Zero Datetime=true;";
 
         MySqlConnection = new MySqlConnection(connectionString);
         MySqlConnection.Open();
