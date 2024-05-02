@@ -1,17 +1,18 @@
 ﻿using NossaLoja.Cadastros.Domain.Entities;
 using NossaLoja.Cadastros.Domain.Interfaces.Repositories;
+using NossaLoja.Core.Domain.Enums;
 using NossaLoja.Core.Domain.Interfaces.Repositories;
+using NossaLoja.Core.Domain.Services;
 
 namespace NossaLoja.Cadastros.Domain.Services;
 
-public class ClienteService
+public class ClienteService : BaseService
 {
-    private readonly IDataContext _dataContext;
     private readonly IClienteRepository _clienteRepository;
 
     public ClienteService(IDataContext dataContext, IClienteRepository clienteRepository)
+        : base(dataContext)
     {
-        _dataContext = dataContext;
         _clienteRepository = clienteRepository;
     }
 
@@ -24,10 +25,16 @@ public class ClienteService
             var valor1 = _clienteRepository.GetNumeroUm(_dataContext);
             var valor2 = _clienteRepository.GetNumeroUm(_dataContext);
 
-            return valor1 + valor2;
+            var resultado = valor1 + valor2;
+
+            ResponseService.SetResponse(StatusCodeEnum.Ok);
+
+            return resultado;
         }
-        catch
+        catch (Exception ex)
         {
+            ResponseService.SetResponse(StatusCodeEnum.InternalServerError, "Erro ao realizar a soma.", ex);
+
             return 0;
         }
         finally
@@ -45,9 +52,13 @@ public class ClienteService
             _clienteRepository.Add(_dataContext, cliente);
 
             _dataContext.Commit();
+
+            ResponseService.SetResponse(StatusCodeEnum.Created);
         }
-        catch
+        catch (Exception ex)
         {
+            ResponseService.SetResponse(StatusCodeEnum.InternalServerError, "Erro ao cadastrar o cliente.", ex);
+
             _dataContext.Rollback();
         }
         finally
@@ -56,7 +67,7 @@ public class ClienteService
         }
     }
 
-    public int Update()
+    public void Update()
     {
         try
         {
@@ -66,13 +77,13 @@ public class ClienteService
 
             _dataContext.Commit();
 
-            return resultado;
+            ResponseService.SetResponse(StatusCodeEnum.Ok);
         }
-        catch
+        catch (Exception ex)
         {
             _dataContext.Rollback();
 
-            return 0;
+            ResponseService.SetResponse(StatusCodeEnum.InternalServerError, "Erro ao atualizar o cliente.", ex);
         }
         finally
         {
@@ -80,7 +91,7 @@ public class ClienteService
         }
     }
 
-    public int Delete()
+    public void Delete()
     {
         try
         {
@@ -90,13 +101,13 @@ public class ClienteService
 
             _dataContext.Commit();
 
-            return resultado;
+            ResponseService.SetResponse(StatusCodeEnum.Ok);
         }
-        catch
+        catch (Exception ex)
         {
             _dataContext.Rollback();
 
-            return 0;
+            ResponseService.SetResponse(StatusCodeEnum.InternalServerError, "Erro ao excluir o cliente.", ex);
         }
         finally
         {
