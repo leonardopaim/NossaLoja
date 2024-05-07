@@ -1,5 +1,6 @@
 ﻿using NossaLoja.Cadastros.Application.Application;
 using NossaLoja.Cadastros.Application.ViewModels;
+using System.Net;
 
 namespace NossaLoja.Cadastros.Application.Test.Application;
 
@@ -19,6 +20,7 @@ public class ClienteApplicationTest : BaseApplicationTest
         var resultado = ClienteApplication.SomaUmMaisUm();
 
         Assert.AreEqual(2, resultado);
+        Assert.AreEqual(HttpStatusCode.OK, ClienteApplication.StatusCode);
     }
 
     [TestMethod]
@@ -36,21 +38,22 @@ public class ClienteApplicationTest : BaseApplicationTest
         ClienteApplication.Add(clienteVM);
 
         Assert.IsTrue(clienteVM.Id > 0);
+        Assert.AreEqual(HttpStatusCode.Created, ClienteApplication.StatusCode);
     }
 
     [TestMethod]
     public void Clientes_Update_Sucesso()
     {
-        var resultado = ClienteApplication.Update();
+        ClienteApplication.Update();
 
-        Assert.AreEqual(1, resultado);
+        Assert.AreEqual(HttpStatusCode.OK, ClienteApplication.StatusCode);
     }
 
     [TestMethod]
     public void Clientes_Delete_Sucesso()
     {
-        var resultado = ClienteApplication.Delete();
+        ClienteApplication.Delete();
 
-        Assert.AreEqual(1, resultado);
+        Assert.AreEqual(HttpStatusCode.OK, ClienteApplication.StatusCode);
     }
 }
