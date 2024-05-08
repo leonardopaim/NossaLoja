@@ -57,8 +57,6 @@ public class ClienteService : BaseService
         }
         catch (Exception ex)
         {
-            ResponseService.SetResponse(StatusCodeEnum.InternalServerError, "Erro ao cadastrar o cliente.", ex);
-
             _dataContext.Rollback();
 
             ResponseService.SetResponse(StatusCodeEnum.InternalServerError, "Erro ao cadastrar o cliente.", ex);
