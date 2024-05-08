@@ -25,12 +25,12 @@ public class ResponseService
         set => _exception = value; 
     }
 
-    public void SetResponse(StatusCodeEnum status, string mensagem = "", Exception ex = null)
+    public void SetResponse(StatusCodeEnum status, string message = "", Exception ex = null)
     {
         _status = status;
-        _message = mensagem;
+        _message = message;
 
-        if (ex != null) 
+        if (ex != null)
             _exception = ex;
     }
 }

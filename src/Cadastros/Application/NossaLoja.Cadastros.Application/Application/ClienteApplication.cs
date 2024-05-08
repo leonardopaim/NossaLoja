@@ -1,6 +1,5 @@
 ﻿using NossaLoja.Cadastros.Application.Mappers;
 using NossaLoja.Cadastros.Application.ViewModels;
-using NossaLoja.Cadastros.Domain.Entities;
 using NossaLoja.Cadastros.Domain.Interfaces.Repositories;
 using NossaLoja.Cadastros.Domain.Services;
 using NossaLoja.Cadastros.Infra.DependencyInjection.Services;

@@ -21,6 +21,7 @@ public class ClienteApplicationTest : BaseApplicationTest
 
         Assert.AreEqual(HttpStatusCode.OK, ClienteApplication.StatusCode);
         Assert.AreEqual(2, resultado);
+        Assert.AreEqual(HttpStatusCode.OK, ClienteApplication.StatusCode);
     }
 
     [TestMethod]
@@ -39,6 +40,7 @@ public class ClienteApplicationTest : BaseApplicationTest
 
         Assert.AreEqual(HttpStatusCode.Created, ClienteApplication.StatusCode);
         Assert.IsTrue(clienteVM.Id > 0);
+        Assert.AreEqual(HttpStatusCode.Created, ClienteApplication.StatusCode);
     }
 
     [TestMethod]

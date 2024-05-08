@@ -33,7 +33,7 @@ public class ClienteService : BaseService
         }
         catch (Exception ex)
         {
-            ResponseService.SetResponse(StatusCodeEnum.InternalServerError, "Erro ao realizar a soma.", ex);
+            ResponseService.SetResponse(StatusCodeEnum.InternalServerError, "Erro ao somar os números.", ex);
 
             return 0;
         }
@@ -60,6 +60,8 @@ public class ClienteService : BaseService
             ResponseService.SetResponse(StatusCodeEnum.InternalServerError, "Erro ao cadastrar o cliente.", ex);
 
             _dataContext.Rollback();
+
+            ResponseService.SetResponse(StatusCodeEnum.InternalServerError, "Erro ao cadastrar o cliente.", ex);
         }
         finally
         {
