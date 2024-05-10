@@ -26,7 +26,13 @@ Tem por objetivo familiarizar o time de desenvolvimento da Sommus quanto aos con
 
 - [Parte 6 (Prática) - Inserindo um cliente no banco de dados](https://www.youtube.com/watch?v=Qh5uXcqTxsQ): <br/>
   No sexto dia do treinamento é realizada a inserção de cliente no banco de dados e trabalhado conceitos de Entidade, ViewModel e Mapper.
-  
+
+- [Parte 7 (Prática) - Status Code e Respostas do Servidor](https://www.youtube.com/watch?v=wsFKj2Rg02E): <br/>
+  No dia sete, é apresentado o conceito da utilização dos Status Code e também é mostrado o serviço de resposta do Domínio. Falamos também sobre a utilização das classes base dos Services e Applications.
+
+- [Parte 8 (Prática) - Validações #01](https://www.youtube.com/watch?v=EfGCLI_h0pU): <br/>
+  No oitavo dia do treinamento iniciamos a implementação das validações mais antigas que existem no SommusGestor.
+
 #### Scrip do banco de dados
 - O script para a criação da estrutura do banco de dados utilizado na aplicação está disponível na pasta `docs` do repositório.
   - [Script do Banco de Dados](https://github.com/leonardopaim/NossaLoja/blob/main/docs/script_banco_de_dados.md)
