@@ -42,6 +42,79 @@ public class ClienteApplicationTest : BaseApplicationTest
     }
 
     [TestMethod]
+    public void Clientes_Add_Erro()
+    {
+        var clienteVM1 = new ClienteVM
+        {
+            Nome = "",
+            Cpf = "12345678909",
+            Identidade = "123456789",
+            Cnpj = "",
+            InscricaoEstadual = "",
+            Ativo = true,
+            Excluido = false,
+        };
+
+        ClienteApplication.Add(clienteVM1);
+
+        Assert.AreEqual((HttpStatusCode)422, ClienteApplication.StatusCode);
+        Assert.IsTrue(clienteVM1.Id == 0);
+        Assert.IsTrue(ClienteApplication.FieldsInvalids.Contains("ClienteNome"));
+
+        var clienteVM2 = new ClienteVM
+        {
+            Nome = "Leonardo Paim",
+            Cpf = "",
+            Identidade = "123456789",
+            Cnpj = "",
+            InscricaoEstadual = "",
+            Ativo = true,
+            Excluido = false,
+        };
+
+        ClienteApplication.Add(clienteVM2);
+
+        Assert.AreEqual((HttpStatusCode)422, ClienteApplication.StatusCode);
+        Assert.IsTrue(clienteVM2.Id == 0);
+        Assert.IsTrue(ClienteApplication.FieldsInvalids.Contains("ClienteCpf"));
+        Assert.IsTrue(ClienteApplication.FieldsInvalids.Contains("ClienteCnpj"));
+
+        var clienteVM3 = new ClienteVM
+        {
+            Nome = "Leonardo Paim",
+            Cpf = "12345678909",
+            Identidade = "",
+            Cnpj = "",
+            InscricaoEstadual = "",
+            Ativo = true,
+            Excluido = false,
+        };
+
+        ClienteApplication.Add(clienteVM3);
+
+        Assert.AreEqual((HttpStatusCode)422, ClienteApplication.StatusCode);
+        Assert.IsTrue(clienteVM3.Id == 0);
+        Assert.IsTrue(ClienteApplication.FieldsInvalids.Contains("ClienteIdentidade"));
+
+        var clienteVM4 = new ClienteVM
+        {
+            Nome = "Sommus Sistemas",
+            Cpf = "",
+            Identidade = "",
+            Cnpj = "123456789000112",
+            InscricaoEstadual = "",
+            Ativo = true,
+            Excluido = false,
+        };
+
+        ClienteApplication.Add(clienteVM4);
+
+        Assert.AreEqual((HttpStatusCode)422, ClienteApplication.StatusCode);
+        Assert.IsTrue(clienteVM4.Id == 0);
+        Assert.IsTrue(ClienteApplication.FieldsInvalids.Contains("ClienteInscricaoEstadual"));
+    }
+
+    [TestMethod]
     public void Clientes_Update_Sucesso()
     {
         ClienteApplication.Update();
