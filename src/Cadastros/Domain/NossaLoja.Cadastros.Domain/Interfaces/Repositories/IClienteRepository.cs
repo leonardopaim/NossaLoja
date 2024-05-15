@@ -7,6 +7,6 @@ public interface IClienteRepository
 {
     int GetNumeroUm(IDataContext dataContext);
     void Add(IDataContext dataContext, Cliente cliente);
-    int Update();
-    int Delete();
+    void Update(IDataContext dataContext, Cliente cliente);
+    void Delete(IDataContext dataContext, int clienteId);
 }

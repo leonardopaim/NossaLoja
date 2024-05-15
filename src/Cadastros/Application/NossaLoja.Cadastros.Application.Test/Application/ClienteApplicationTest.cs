@@ -59,7 +59,7 @@ public class ClienteApplicationTest : BaseApplicationTest
 
         Assert.AreEqual((HttpStatusCode)422, ClienteApplication.StatusCode);
         Assert.IsTrue(clienteVM1.Id == 0);
-        Assert.IsTrue(ClienteApplication.FieldsInvalids.Contains("ClienteNome"));
+        Assert.IsTrue(ClienteApplication.Errors.Exists(x => x.Field.Equals("ClienteNome")));
 
         var clienteVM2 = new ClienteVM
         {
@@ -76,8 +76,8 @@ public class ClienteApplicationTest : BaseApplicationTest
 
         Assert.AreEqual((HttpStatusCode)422, ClienteApplication.StatusCode);
         Assert.IsTrue(clienteVM2.Id == 0);
-        Assert.IsTrue(ClienteApplication.FieldsInvalids.Contains("ClienteCpf"));
-        Assert.IsTrue(ClienteApplication.FieldsInvalids.Contains("ClienteCnpj"));
+        Assert.IsTrue(ClienteApplication.Errors.Exists(x => x.Field.Equals("ClienteCpf")));
+        Assert.IsTrue(ClienteApplication.Errors.Exists(x => x.Field.Equals("ClienteCnpj")));
 
         var clienteVM3 = new ClienteVM
         {
@@ -94,7 +94,7 @@ public class ClienteApplicationTest : BaseApplicationTest
 
         Assert.AreEqual((HttpStatusCode)422, ClienteApplication.StatusCode);
         Assert.IsTrue(clienteVM3.Id == 0);
-        Assert.IsTrue(ClienteApplication.FieldsInvalids.Contains("ClienteIdentidade"));
+        Assert.IsTrue(ClienteApplication.Errors.Exists(x => x.Field.Equals("ClienteIdentidade")));
 
         var clienteVM4 = new ClienteVM
         {
@@ -111,21 +111,52 @@ public class ClienteApplicationTest : BaseApplicationTest
 
         Assert.AreEqual((HttpStatusCode)422, ClienteApplication.StatusCode);
         Assert.IsTrue(clienteVM4.Id == 0);
-        Assert.IsTrue(ClienteApplication.FieldsInvalids.Contains("ClienteInscricaoEstadual"));
+        Assert.IsTrue(ClienteApplication.Errors.Exists(x => x.Field.Equals("ClienteInscricaoEstadual")));
     }
 
     [TestMethod]
     public void Clientes_Update_Sucesso()
     {
-        ClienteApplication.Update();
+        var clienteVM1 = new ClienteVM
+        {
+            Nome = "Trocar Nome",
+            Cpf = "12345678909",
+            Identidade = "123456789",
+            Cnpj = "",
+            InscricaoEstadual = "",
+            Ativo = true,
+            Excluido = false,
+        };
+
+        ClienteApplication.Add(clienteVM1);
+
+        clienteVM1.Nome = "Aurélio Paim";
+
+        ClienteApplication.Update(clienteVM1);
 
         Assert.AreEqual(HttpStatusCode.OK, ClienteApplication.StatusCode);
+        Assert.IsTrue(ClienteApplication.Errors.Count == 0);
     }
 
     [TestMethod]
     public void Clientes_Delete_Sucesso()
     {
-        ClienteApplication.Delete();
+        var clienteVM1 = new ClienteVM
+        {
+            Nome = "Cliente Para Deletar",
+            Cpf = "12345678909",
+            Identidade = "123456789",
+            Cnpj = "",
+            InscricaoEstadual = "",
+            Ativo = true,
+            Excluido = false,
+        };
+
+        ClienteApplication.Add(clienteVM1);
+
+        var clienteId = clienteVM1.Id;
+
+        ClienteApplication.Delete(clienteId);
 
         Assert.AreEqual(HttpStatusCode.OK, ClienteApplication.StatusCode);
     }

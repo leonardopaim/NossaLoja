@@ -1,6 +1,8 @@
 ﻿using NossaLoja.Cadastros.Domain.Entities;
 using NossaLoja.Cadastros.Domain.Interfaces.Repositories;
+using NossaLoja.Cadastros.Domain.Validations;
 using NossaLoja.Core.Domain.Enums;
+using NossaLoja.Core.Domain.Exceptions;
 using NossaLoja.Core.Domain.Interfaces.Repositories;
 using NossaLoja.Core.Domain.Services;
 
@@ -9,11 +11,14 @@ namespace NossaLoja.Cadastros.Domain.Services;
 public class ClienteService : BaseService
 {
     private readonly IClienteRepository _clienteRepository;
+    private readonly ClienteValidation _clienteValidation;
 
     public ClienteService(IDataContext dataContext, IClienteRepository clienteRepository)
         : base(dataContext)
     {
         _clienteRepository = clienteRepository;
+
+        _clienteValidation = new ClienteValidation(ResponseService);
     }
 
     public int SomaUmMaisUm()
@@ -49,17 +54,17 @@ public class ClienteService : BaseService
         {
             _dataContext.BeginTransaction();
 
-            if (!ValidaCliente(cliente))
-            {
-                ResponseService.SetResponse(StatusCodeEnum.UnprocessableEntity, "Dados inválidos.");
-                return;
-            }
+            _clienteValidation.Validar(cliente);
 
             _clienteRepository.Add(_dataContext, cliente);
 
             _dataContext.Commit();
 
             ResponseService.SetResponse(StatusCodeEnum.Created);
+        }
+        catch (ValidacaoException)
+        {
+            ResponseService.SetResponse(StatusCodeEnum.UnprocessableEntity, "Dados inválidos.");
         }
         catch (Exception ex)
         {
@@ -73,17 +78,23 @@ public class ClienteService : BaseService
         }
     }
 
-    public void Update()
+    public void Update(Cliente cliente)
     {
         try
         {
             _dataContext.BeginTransaction();
 
-            var resultado = _clienteRepository.Update();
+            _clienteValidation.Validar(cliente);
+
+            _clienteRepository.Update(_dataContext, cliente);
 
             _dataContext.Commit();
 
             ResponseService.SetResponse(StatusCodeEnum.Ok);
+        }
+        catch (ValidacaoException)
+        {
+            ResponseService.SetResponse(StatusCodeEnum.UnprocessableEntity, "Dados inválidos.");
         }
         catch (Exception ex)
         {
@@ -97,13 +108,13 @@ public class ClienteService : BaseService
         }
     }
 
-    public void Delete()
+    public void Delete(int clienteId)
     {
         try
         {
             _dataContext.BeginTransaction();
 
-            var resultado = _clienteRepository.Delete();
+            _clienteRepository.Delete(_dataContext, clienteId);
 
             _dataContext.Commit();
 
@@ -120,28 +131,4 @@ public class ClienteService : BaseService
             _dataContext.Finally();
         }
     }
-
-    #region Validações
-
-    private bool ValidaCliente(Cliente cliente)
-    {
-        if (string.IsNullOrEmpty(cliente.Nome))
-            ResponseService.AddError("ClienteNome", "O nome não pode ser vazio.");
-
-        if (string.IsNullOrEmpty(cliente.Cpf) && string.IsNullOrEmpty(cliente.Cnpj))
-        {
-            ResponseService.AddError("ClienteCpf", "Deve ser preenchido o CPF ou o CNPJ.");
-            ResponseService.AddError("ClienteCnpj", "Deve ser preenchido o CPF ou o CNPJ.");
-        }
-
-        if (!string.IsNullOrEmpty(cliente.Cpf) && string.IsNullOrEmpty(cliente.Identidade))
-            ResponseService.AddError("ClienteIdentidade", "Para pessoa física precisa informar a Identidade.");
-
-        if (!string.IsNullOrEmpty(cliente.Cnpj) && string.IsNullOrEmpty(cliente.InscricaoEstadual))
-            ResponseService.AddError("ClienteInscricaoEstadual", "Para pessoa jurídica precisa informar a Inscrição Estadual.");
-
-        return ResponseService.CheckIsValid();
-    }
-
-    #endregion
 }
