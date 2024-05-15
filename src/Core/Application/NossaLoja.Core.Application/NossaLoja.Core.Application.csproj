@@ -10,8 +10,4 @@
     <PackageReference Include="AutoMapper" Version="13.0.1" />
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\..\Domain\NossaLoja.Core.Domain\NossaLoja.Core.Domain.csproj" />
-  </ItemGroup>
-
 </Project>
