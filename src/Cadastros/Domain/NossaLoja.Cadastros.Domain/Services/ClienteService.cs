@@ -21,33 +21,6 @@ public class ClienteService : BaseService
         _clienteValidation = new ClienteValidation(ResponseService);
     }
 
-    public int SomaUmMaisUm()
-    {
-        try
-        {
-            _dataContext.BeginTransaction();
-
-            var valor1 = _clienteRepository.GetNumeroUm(_dataContext);
-            var valor2 = _clienteRepository.GetNumeroUm(_dataContext);
-
-            var resultado = valor1 + valor2;
-
-            ResponseService.SetResponse(StatusCodeEnum.Ok);
-
-            return resultado;
-        }
-        catch (Exception ex)
-        {
-            ResponseService.SetResponse(StatusCodeEnum.InternalServerError, "Erro ao somar os números.", ex);
-
-            return 0;
-        }
-        finally
-        {
-            _dataContext.Finally();
-        }
-    }
-
     public void Add(Cliente cliente)
     {
         try
@@ -125,6 +98,60 @@ public class ClienteService : BaseService
             _dataContext.Rollback();
 
             ResponseService.SetResponse(StatusCodeEnum.InternalServerError, "Erro ao excluir o cliente.", ex);
+        }
+        finally
+        {
+            _dataContext.Finally();
+        }
+    }
+
+    public List<Cliente> GetAll()
+    {
+        try
+        {
+            _dataContext.BeginTransaction();
+
+            var clientes = _clienteRepository.GetAll(_dataContext);
+
+            ResponseService.SetResponse(StatusCodeEnum.Ok);
+
+            return clientes;
+        }
+        catch (Exception ex)
+        {
+            ResponseService.SetResponse(StatusCodeEnum.InternalServerError, "Erro ao recuperar a lista de clientes.", ex);
+
+            return new List<Cliente>();
+        }
+        finally
+        {
+            _dataContext.Finally();
+        }
+    }
+
+    public Cliente Get(int clienteId)
+    {
+        try
+        {
+            _dataContext.BeginTransaction();
+
+            var cliente = _clienteRepository.Get(_dataContext, clienteId);
+
+            if (cliente.Id == 0)
+            {
+                ResponseService.SetResponse(StatusCodeEnum.NotFound);
+                return new Cliente();
+            }
+
+            ResponseService.SetResponse(StatusCodeEnum.Ok);
+
+            return cliente;
+        }
+        catch (Exception ex)
+        {
+            ResponseService.SetResponse(StatusCodeEnum.InternalServerError, "Erro ao recuperar o cliente.", ex);
+
+            return new Cliente();
         }
         finally
         {

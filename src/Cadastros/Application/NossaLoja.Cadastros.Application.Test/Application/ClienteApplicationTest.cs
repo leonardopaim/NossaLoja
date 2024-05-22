@@ -15,15 +15,6 @@ public class ClienteApplicationTest : BaseApplicationTest
     }
 
     [TestMethod]
-    public void Clientes_SomaUmMaisUm_Sucesso()
-    {
-        var resultado = ClienteApplication.SomaUmMaisUm();
-
-        Assert.AreEqual(HttpStatusCode.OK, ClienteApplication.StatusCode);
-        Assert.AreEqual(2, resultado);
-    }
-
-    [TestMethod]
     public void Clientes_Add_Sucesso()
     {
         var clienteVM = new ClienteVM
@@ -38,6 +29,7 @@ public class ClienteApplicationTest : BaseApplicationTest
         ClienteApplication.Add(clienteVM);
 
         Assert.AreEqual(HttpStatusCode.Created, ClienteApplication.StatusCode);
+        Assert.IsTrue(ClienteApplication.Errors.Count == 0);
         Assert.IsTrue(clienteVM.Id > 0);
     }
 
@@ -159,5 +151,61 @@ public class ClienteApplicationTest : BaseApplicationTest
         ClienteApplication.Delete(clienteId);
 
         Assert.AreEqual(HttpStatusCode.OK, ClienteApplication.StatusCode);
+    }
+
+    [TestMethod]
+    public void Clientes_GetAll_Sucesso()
+    {
+        var clienteVM1 = new ClienteVM
+        {
+            Nome = "Cliente Para GET ALL",
+            Cpf = "12345678909",
+            Identidade = "123456789",
+            Cnpj = "",
+            InscricaoEstadual = "",
+            Ativo = true,
+            Excluido = false,
+        };
+
+        ClienteApplication.Add(clienteVM1);
+
+        var clientesVM = ClienteApplication.GetAll();
+
+        Assert.AreEqual(HttpStatusCode.OK, ClienteApplication.StatusCode);
+        Assert.IsTrue(clientesVM.Count > 0);
+    }
+
+    [TestMethod]
+    public void Clientes_Get_Sucesso()
+    {
+        var clienteVM1 = new ClienteVM
+        {
+            Nome = "Cliente Para GET",
+            Cpf = "12345678909",
+            Identidade = "123456789",
+            Cnpj = "",
+            InscricaoEstadual = "",
+            Ativo = true,
+            Excluido = false,
+        };
+
+        ClienteApplication.Add(clienteVM1);
+
+        var clienteId = clienteVM1.Id;
+
+        var clienteVMRecuperado = ClienteApplication.Get(clienteId);
+
+        Assert.AreEqual(HttpStatusCode.OK, ClienteApplication.StatusCode);
+        Assert.IsTrue(clienteVMRecuperado.Id == clienteVM1.Id);
+    }
+
+    [TestMethod]
+    public void Clientes_Get_NaoEncontrado()
+    {
+        var clienteId = int.MaxValue;
+
+        ClienteApplication.Get(clienteId);
+
+        Assert.AreEqual(HttpStatusCode.NotFound, ClienteApplication.StatusCode);
     }
 }

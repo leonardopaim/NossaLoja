@@ -30,13 +30,6 @@ public class ClienteApplication : BaseApplication
     public override List<string> FieldsInvalids => _clienteService.ResponseService.FieldsInvalids;
     public override List<ResponseErrorVM> Errors => ResponseErrorMap.Get(_clienteService.ResponseService.Errors);
 
-    public int SomaUmMaisUm()
-    {
-        var resultado = ServiceFactory().SomaUmMaisUm();
-        
-        return resultado;
-    }
-
     public void Add(ClienteVM clienteVM)
     {
         var cliente = ClienteMap.Get(clienteVM);
@@ -56,5 +49,19 @@ public class ClienteApplication : BaseApplication
     public void Delete(int clienteId)
     {
         ServiceFactory().Delete(clienteId);
+    }
+
+    public List<ClienteVM> GetAll()
+    {
+        var clientes = ServiceFactory().GetAll();
+        var clientesVM = ClienteMap.Get(clientes);
+        return clientesVM;
+    }
+
+    public ClienteVM Get(int clienteId)
+    {
+        var cliente = ServiceFactory().Get(clienteId);
+        var clienteVM = ClienteMap.Get(cliente);
+        return clienteVM;
     }
 }
