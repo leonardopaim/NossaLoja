@@ -33,6 +33,15 @@ Tem por objetivo familiarizar o time de desenvolvimento da Sommus quanto aos con
 - [Parte 8 (Prática) - Validações #01](https://www.youtube.com/watch?v=EfGCLI_h0pU): <br/>
   No oitavo dia do treinamento iniciamos a implementação das validações mais antigas que existem no SommusGestor.
 
+- [Parte 9 (Prática) - Validações #02 e Métodos restantes](https://www.youtube.com/watch?v=_czorfpc66o): <br/>
+  Neste dia finalizamos a parte das validações e também finalizamos a criação dos métodos que faltavam de Update e Delete.
+
+- [Parte 10 (Prática) - ResponseTypes e Métodos de Get](https://www.youtube.com/watch?v=nn3fLScX4-U): <br/>
+  Conversamos aqui sobre os response Types existentes no SommusGestor e implementamos as buscas dos dados no banco.
+
+- [Parte 11 (Prática) - Criação da API e o primeiro Controller](https://www.youtube.com/watch?v=ZI7ppDt4bE8): <br/>
+  Neste dia criamos a camada Presentation e o projeto WebService que é a nossa API. Implementamos o primeiro controller da Solução.
+
 #### Scrip do banco de dados
 - O script para a criação da estrutura do banco de dados utilizado na aplicação está disponível na pasta `docs` do repositório.
   - [Script do Banco de Dados](https://github.com/leonardopaim/NossaLoja/blob/main/docs/script_banco_de_dados.md)
