@@ -1,0 +1,6 @@
+@NossaLoja.WebService_HostAddress = https://localhost:44365
+
+GET {{NossaLoja.WebService_HostAddress}}/Api/Clientes
+Accept: application/json
+
+###

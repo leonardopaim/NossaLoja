@@ -33,7 +33,7 @@ public class ClienteService : BaseService
 
             _dataContext.Commit();
 
-            ResponseService.SetResponse(StatusCodeEnum.Created);
+            ResponseService.SetResponse(StatusCodeEnum.Created, "Cliente cadastrado com sucesso!");
         }
         catch (ValidacaoException)
         {
