@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>disable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="App\Js\" />
+    <Folder Include="App\Html\" />
+    <Folder Include="Models\" />
+    <Folder Include="Public\Js\" />
+    <Folder Include="Public\Css\" />
+  </ItemGroup>
+
+</Project>

@@ -16,7 +16,6 @@ public class ClienteController : ControllerBase
     }
 
     [HttpGet]
-    [Route("GetAll")]
     public IActionResult GetAll()
     {
         try
