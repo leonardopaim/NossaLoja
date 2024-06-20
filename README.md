@@ -42,6 +42,9 @@ Tem por objetivo familiarizar o time de desenvolvimento da Sommus quanto aos con
 - [Parte 11 (Prática) - Criação da API e o primeiro Controller](https://www.youtube.com/watch?v=ZI7ppDt4bE8): <br/>
   Neste dia criamos a camada Presentation e o projeto WebService que é a nossa API. Implementamos o primeiro controller da Solução.
 
+- [Parte 12 (Prática) - Criação do projeto Web](https://www.youtube.com/watch?v=2yvRc5qjF7I): <br/>
+  Fazemos nesse treinamento a criação do projeto Web que irá consumir os recursos da nossa API.
+
 #### Scrip do banco de dados
 - O script para a criação da estrutura do banco de dados utilizado na aplicação está disponível na pasta `docs` do repositório.
   - [Script do Banco de Dados](https://github.com/leonardopaim/NossaLoja/blob/main/docs/script_banco_de_dados.md)
