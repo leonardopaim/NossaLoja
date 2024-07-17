@@ -8,11 +8,18 @@
 
     <title>Nossa Loja</title>
 
+    <script>
+        function NossaLoja_WS() {
+            return "@ViewBag.Url";
+        }
+    </script>
+
     <link rel="stylesheet" href="/App/Css/index.css" />
+    <link rel="stylesheet" href="../Public/Css/bootstrap.css" />
 </head>
 
 <!-- Corpo -->
-<body id="mainBody">
+<body id="mainBody" onload="loadHome()">
 
     <!-- Conteúdo da página -->
     <div id="mainBodyConteudo">
@@ -46,6 +53,15 @@
         </div>
 
     </div>
+
+    <script type="text/javascript" src="../Public/Js/jquery-3.2.1.js"></script>
+    <script type="text/javascript" src="../Public/Js/bootstrap.js"></script>
+    <script type="text/javascript" src="../Public/Js/axios.min.js"></script>
+
+    <script type="text/javascript" src="../App/Js/Common/common.js"></script>
+    <script type="text/javascript" src="../App/Js/Common/route.js"></script>
+
+    <script type="text/javascript" src="../App/Js/cliente.js"></script>
 
 </body>
 

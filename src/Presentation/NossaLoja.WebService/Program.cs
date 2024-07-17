@@ -1,6 +1,15 @@
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+// Adicione o serviço de CORS
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("PermitirTodos", policy =>
+    {
+        policy.AllowAnyOrigin()
+              .AllowAnyMethod()
+              .AllowAnyHeader();
+    });
+});
 
 builder.Services.AddControllers()
     .AddJsonOptions(options =>
@@ -24,6 +33,9 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+// Use a política de CORS configurada
+app.UseCors("PermitirTodos");
 
 app.UseHttpsRedirection();
 
