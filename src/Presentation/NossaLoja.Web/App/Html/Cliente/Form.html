@@ -1,0 +1,60 @@
+﻿<div class="no-gutters form-wrapper">
+    <div class="form-content-wrapper">
+
+        <div class="list list-index">
+            <div class="card card-list">
+                <div class="card-header">
+                    <p>Formulário de Cliente</p>
+
+                    <button class="botao botao-voltar" onclick="clienteIndex()">Voltar</button>
+                </div>
+
+                <div class="card-body">
+                    <div class="row mb-3">
+                        <div class="form-group col-3">
+                            <label for="Codigo">Código</label>
+                            <input type="text" disabled class="form-control input-codigo" id="Codigo">
+                        </div>
+
+                        <div class="form-group col-7">
+                            <label for="Nome">Nome</label>
+                            <input type="text" class="form-control" id="Nome">
+                        </div>
+
+                        <div class="form-group-switch col-2">
+                            <label for="Ativo">Ativo</label>
+                            <div id="Ativo" data-sg-switch="true" class="switch" onclick="_switch(this)">
+                                <input type="checkbox" hidden="hidden" autocomplete="off">
+                                <div id="yes" class="switch-label">Sim</div>
+                                <div id="no" class="switch-label switch-selection">Não</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-3">
+                            <label for="Cpf">Cpf</label>
+                            <input type="text" class="form-control" id="Cpf">
+                        </div>
+
+                        <div class="form-group col-3">
+                            <label for="Identidade">Identidade</label>
+                            <input type="text" class="form-control" id="Identidade">
+                        </div>
+
+                        <div class="form-group col-3">
+                            <label for="Cnpj">Cnpj</label>
+                            <input type="text" class="form-control" id="Cnpj">
+                        </div>
+
+                        <div class="form-group col-3">
+                            <label for="InscricaoEstadual">Inscricao Estadual</label>
+                            <input type="text" class="form-control" id="InscricaoEstadual">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

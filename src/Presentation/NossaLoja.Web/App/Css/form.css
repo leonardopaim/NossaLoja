@@ -1,0 +1,43 @@
+﻿.form-group, .form-group-switch {
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+/* Switch */
+.switch {
+    margin: 0;
+    height: 40px;
+    min-width: 93px;
+    width: auto;
+    background: #F1F1F2;
+    border-radius: 3px;
+    display: flex;
+}
+
+    .switch.size-fixed {
+        width: 120px;
+    }
+
+input:checked ~ #yes.switch-label {
+    border-radius: 3px 0px 0px 3px;
+    background: #4285F4;
+    color: white !important;
+}
+
+input:not(:checked) ~ #no.switch-label {
+    border-radius: 0 3px 3px 0;
+    background: #4285F4;
+    color: white !important;
+}
+
+.switch-label {
+    min-width: 46px;
+    width: 50%;
+    line-height: 40px;
+    font-size: 14px;
+    color: #96989A !important;
+    text-align: center;
+    cursor: pointer;
+}

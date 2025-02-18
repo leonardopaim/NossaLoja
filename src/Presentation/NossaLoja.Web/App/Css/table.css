@@ -1,0 +1,7 @@
+﻿.card-body > table > tbody > tr:nth-child(even){
+    background-color: #FBFBFB;
+}
+
+.card-body > table > tbody > tr {
+    padding: 5px;
+}

@@ -1,10 +1,26 @@
-﻿#main {
+﻿* {
+    font-family: 'Segoe UI';
+    color: #565658;
+    user-select: none;
+    scrollbar-color: #cfcfcf #cfcfcf15;
+    scrollbar-width: thin;
+    margin: 0 !important;
+}
+
+body {
+    height: 100vh;
+    width: 100vw;
+    background-color: #EBEBEB;
+    overflow-y: auto;
+    overflow-x: hidden;
+    min-width: 1024px;
+}
+
+#main {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    margin: 0;
 }
 
 .botao {
@@ -22,3 +38,10 @@
         outline: none;
         box-shadow: none;
     }
+
+.botao-voltar {
+    margin: 3px;
+    height: 30px;
+    width: 120px;
+    background-color: #e1e1e1;
+}
