@@ -5,7 +5,7 @@ public class ResponseError
     private string _field = "";
     public string Field 
     { 
-        get => _field ?? "TESTEa"; 
+        get => _field ?? "TESTE"; 
         set => _field = value; 
     }
 
