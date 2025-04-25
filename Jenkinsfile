@@ -1,10 +1,10 @@
 pipeline {
     agent any
 
-    triggers {
-        // Executa somente de segunda a sexta às 20h, e só se houver mudanças na branch master
-        pollSCM('15 17 * * 1-5')
-    }
+    // triggers {
+    //     // Executa somente de segunda a sexta às 20h, e só se houver mudanças na branch master
+    //     pollSCM('15 17 * * 1-5')
+    // }
     stages {
         stage('Restaurando dependencias') {
 			steps {
