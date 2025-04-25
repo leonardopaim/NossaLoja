@@ -3,7 +3,7 @@ pipeline {
 
     triggers {
         // Executa somente de segunda a sexta às 20h, e só se houver mudanças na branch master
-        pollSCM('10 18 * * 1-5')
+        pollSCM('13 18 * * 1-5')
     }
     stages {
         stage('Restaurando dependencias') {
