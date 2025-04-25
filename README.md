@@ -1,6 +1,6 @@
 # Projeto Nossa Loja
 
-Projeto desenvolvido junto ao treinamento da Arquitetura do SommusGestor..
+Projeto desenvolvido junto ao treinamento da Arquitetura do SommusGestor.
 
 Tem por objetivo familiarizar o time de desenvolvimento da Sommus quanto aos conceitos base adotados em projetos da empresa.
 
